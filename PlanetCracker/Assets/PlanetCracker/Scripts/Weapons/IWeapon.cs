@@ -1,4 +1,4 @@
-﻿namespace PlanetCracker.Characters
+﻿namespace PlanetCracker.Weapons
 {
     public interface IWeapon
     {
@@ -6,5 +6,17 @@
         /// This method fires the weapon.
         /// </summary>
         void Fire();
+
+        /// <summary>
+        /// The damage of the bullet.
+        /// </summary>
+        /// <returns>The damage of the bullet, of type float</returns>
+        float GetBulletDamage();
+
+        /// <summary>
+        /// The speed of the bullet.
+        /// </summary>
+        /// <returns>The speed of the bullet, of type float</returns>
+        float GetBulletSpeed();
     }
 }
