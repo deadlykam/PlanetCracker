@@ -31,5 +31,11 @@ namespace PlanetCracker.Characters
             _movement = transform.GetComponent<IMove>();
             _rotate = transform.GetComponent<IRotate>();
         }
+
+        /// <summary>
+        /// The world position of the character.
+        /// </summary>
+        /// <returns>The world position of the character, of type Vector3</returns>
+        public Vector3 GetPosition() => transform.position;
     }
 }
