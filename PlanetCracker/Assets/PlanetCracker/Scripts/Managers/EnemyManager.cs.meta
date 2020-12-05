@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 2e1321b42d5306d4d97d7d50827b77d7
+guid: 53e4fb74412798b439f8c88d36ce9b08
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _weaponModel: {instanceID: 0}
-  - _enemyManager: {fileID: 11400000, guid: 593ca74db010c134e9e1d0855d68a6a7, type: 2}
+  - _helper: {fileID: 11400000, guid: 593ca74db010c134e9e1d0855d68a6a7, type: 2}
+  - _enemyHolder: {instanceID: 0}
+  - _genPointHolder: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

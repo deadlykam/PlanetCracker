@@ -88,5 +88,15 @@ namespace PlanetCracker.Characters
         /// </summary>
         /// <returns>The world position of the character, of type Vector3</returns>
         public Vector3 GetPosition() => transform.position;
+
+        /// <summary>
+        /// This method will start the character
+        /// </summary>
+        /// <param name="position">The positino to start from, of type Vector3</param>
+        public void StartCharacter(Vector3 position)
+        {
+            transform.position = position;
+            gameObject.SetActive(true);
+        }
     }
 }
