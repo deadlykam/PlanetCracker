@@ -1,6 +1,4 @@
 ﻿using PlanetCracker.ScriptableObjects.Delegates;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlanetCracker.Characters
