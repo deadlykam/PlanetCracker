@@ -1,4 +1,5 @@
 ﻿using PlanetCracker.Movements.NormalMovements;
+using PlanetCracker.Rotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +13,14 @@ namespace PlanetCracker.Characters
         [SerializeField] private float _speedRot;
 
         private IMove _movement;
+        private IRotate _rotate;
 
         protected virtual void Awake() => InitCharacter();
         
         protected virtual void Update()
         {
             _movement.Move(transform, _speedMove);
+            _rotate.Rotate(transform, _speedRot);
         }
 
         /// <summary>
@@ -26,6 +29,7 @@ namespace PlanetCracker.Characters
         private void InitCharacter()
         {
             _movement = transform.GetComponent<IMove>();
+            _rotate = transform.GetComponent<IRotate>();
         }
     }
 }
