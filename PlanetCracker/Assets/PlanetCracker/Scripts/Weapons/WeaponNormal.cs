@@ -1,16 +1,15 @@
-﻿using PlanetCracker.Rotations;
+﻿using PlanetCracker.Timers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PlanetCracker.Timers;
 
 namespace PlanetCracker.Weapons
 {
     [RequireComponent(typeof(TimerCountDown))]
-    public class PlayerWeapon : MonoBehaviour, IWeapon
+    public class WeaponNormal : MonoBehaviour, IWeapon
     {
         [SerializeField] private Transform _bulletHolder;
         [SerializeField] private Transform _genPoint; // Bullet generation point
-        [SerializeField] private float _speedRotate;
         [SerializeField] private float _speedBullet;
         [SerializeField] private int _damageBullet;
         [SerializeField] private float _fireRate;
@@ -18,13 +17,11 @@ namespace PlanetCracker.Weapons
 
         private List<IBullet> _bullets;
         private int _indexBullet;
-
-        private IRotate _rotate; // For rotating the turret
+        
         private ITimer _fireRateTimer;
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            _rotate = GetComponent<IRotate>();
             _bullets = new List<IBullet>();
 
             _fireRateTimer = GetComponent<ITimer>();
@@ -40,10 +37,8 @@ namespace PlanetCracker.Weapons
                 _bullets[_indexBullet].SetupBullet(this);
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            _rotate.Rotate(transform, _speedRotate);
-
             if (!_fireRateTimer.IsTimerDone()) _fireRateTimer.UpdateTimer();
         }
 
