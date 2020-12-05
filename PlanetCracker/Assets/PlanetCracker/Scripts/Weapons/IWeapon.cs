@@ -18,5 +18,11 @@
         /// </summary>
         /// <returns>The speed of the bullet, of type float</returns>
         float GetBulletSpeed();
+
+        /// <summary>
+        /// The target tag for the bullets to hit.
+        /// </summary>
+        /// <returns>The target tag for the bullets to hit, of type string</returns>
+        string GetTargetTag();
     }
 }

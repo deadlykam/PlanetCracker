@@ -17,8 +17,8 @@ namespace PlanetCracker.Weapons
 
         private void OnTriggerEnter(Collider other)
         {
-            //TODO: Check if hit with other tag character.
-            if (other.CompareTag(_tagEnvironment)) gameObject.SetActive(false);
+            if (other.CompareTag(_weapon.GetTargetTag())) Debug.Log("Character Hit!");
+            else if (other.CompareTag(_tagEnvironment)) gameObject.SetActive(false);
         }
 
         public void SetupBullet(IWeapon weapon)

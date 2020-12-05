@@ -14,6 +14,7 @@ namespace PlanetCracker.Weapons
         [SerializeField] private float _speedBullet;
         [SerializeField] private float _damageBullet;
         [SerializeField] private float _fireRate;
+        [SerializeField] private string _targetTag;
 
         private List<IBullet> _bullets;
         private int _indexBullet;
@@ -59,5 +60,6 @@ namespace PlanetCracker.Weapons
 
         public float GetBulletDamage() => _damageBullet;
         public float GetBulletSpeed() => _speedBullet;
+        public string GetTargetTag() => _targetTag;
     }
 }
