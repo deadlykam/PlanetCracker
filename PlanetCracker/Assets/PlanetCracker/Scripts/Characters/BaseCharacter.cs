@@ -1,7 +1,6 @@
 ﻿using PlanetCracker.Movements.NormalMovements;
 using PlanetCracker.Rotations;
-using System.Collections;
-using System.Collections.Generic;
+using PlanetCracker.Weapons;
 using UnityEngine;
 
 namespace PlanetCracker.Characters
@@ -9,11 +8,13 @@ namespace PlanetCracker.Characters
     public abstract class BaseCharacter : MonoBehaviour
     {
         [Header("Base Properties")]
+        [SerializeField] private Transform _weaponModel;
         [SerializeField] private float _speedMove;
         [SerializeField] private float _speedRot;
 
         private IMove _movement;
         private IRotate _rotate;
+        private IWeapon _weapon;
 
         protected virtual void Awake() => InitCharacter();
         
@@ -30,7 +31,13 @@ namespace PlanetCracker.Characters
         {
             _movement = transform.GetComponent<IMove>();
             _rotate = transform.GetComponent<IRotate>();
+            _weapon = _weaponModel.GetComponent<IWeapon>();
         }
+
+        /// <summary>
+        /// This method fires the weapon.
+        /// </summary>
+        protected void FireWeapon() => _weapon?.Fire();
 
         /// <summary>
         /// The world position of the character.

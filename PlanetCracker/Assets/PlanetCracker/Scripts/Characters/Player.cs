@@ -1,6 +1,4 @@
 ﻿using PlanetCracker.ScriptableObjects.Delegates;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlanetCracker.Characters
@@ -14,6 +12,13 @@ namespace PlanetCracker.Characters
         {
             base.Awake();
             _playerPosition.SetDelegate(GetPosition);
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            if (Input.GetMouseButton(0)) FireWeapon(); // Firing weapon
         }
     }
 }

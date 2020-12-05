@@ -9,11 +9,17 @@ namespace PlanetCracker.Managers
     {
         [Header("GameManager Global Properties")]
         [SerializeField] private FloatVariable _simulationSpeed;
+        [SerializeField] private TransformVariable _bulletContainer;
 
         [Header("GameManager Local Properties")]
         [SerializeField, Range(0f, 1f)] private float _simSpeed;
+        [SerializeField] private Transform _bulletHolder;
 
-        private void Awake() => _simulationSpeed.SetValue(_simSpeed);
+        private void Awake()
+        {
+            _simulationSpeed.SetValue(_simSpeed);
+            _bulletContainer.SetValue(_bulletHolder);
+        }
 
         private void Update()
         {
