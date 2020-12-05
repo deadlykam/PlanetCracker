@@ -1,4 +1,5 @@
-﻿using PlanetCracker.Movements.NormalMovements;
+﻿using PlanetCracker.Characters;
+using PlanetCracker.Movements.NormalMovements;
 using PlanetCracker.ScriptableObjects.Variables;
 using UnityEngine;
 
@@ -17,7 +18,11 @@ namespace PlanetCracker.Weapons
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(_weapon.GetTargetTag())) Debug.Log("Character Hit!");
+            if (other.CompareTag(_weapon.GetTargetTag()))
+            {
+                other.GetComponent<BaseCharacter>().Hurt(_weapon.GetBulletDamage());
+                gameObject.SetActive(false);
+            }
             else if (other.CompareTag(_tagEnvironment)) gameObject.SetActive(false);
         }
 

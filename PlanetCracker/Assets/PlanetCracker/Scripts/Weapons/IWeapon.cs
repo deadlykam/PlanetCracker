@@ -10,8 +10,8 @@
         /// <summary>
         /// The damage of the bullet.
         /// </summary>
-        /// <returns>The damage of the bullet, of type float</returns>
-        float GetBulletDamage();
+        /// <returns>The damage of the bullet, of type int</returns>
+        int GetBulletDamage();
 
         /// <summary>
         /// The speed of the bullet.

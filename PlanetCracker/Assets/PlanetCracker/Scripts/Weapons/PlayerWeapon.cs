@@ -12,7 +12,7 @@ namespace PlanetCracker.Weapons
         [SerializeField] private Transform _genPoint; // Bullet generation point
         [SerializeField] private float _speedRotate;
         [SerializeField] private float _speedBullet;
-        [SerializeField] private float _damageBullet;
+        [SerializeField] private int _damageBullet;
         [SerializeField] private float _fireRate;
         [SerializeField] private string _targetTag;
 
@@ -58,7 +58,7 @@ namespace PlanetCracker.Weapons
             }
         }
 
-        public float GetBulletDamage() => _damageBullet;
+        public int GetBulletDamage() => _damageBullet;
         public float GetBulletSpeed() => _speedBullet;
         public string GetTargetTag() => _targetTag;
     }

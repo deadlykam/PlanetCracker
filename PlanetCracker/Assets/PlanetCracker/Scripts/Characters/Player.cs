@@ -18,7 +18,7 @@ namespace PlanetCracker.Characters
         {
             base.Update();
 
-            if (Input.GetMouseButton(0)) FireWeapon(); // Firing weapon
+            if (Input.GetMouseButton(0) && !IsDead()) FireWeapon(); // Firing weapon
         }
     }
 }
