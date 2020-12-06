@@ -16,6 +16,8 @@ namespace PlanetCracker.NormalizedValues
         /// </summary>
         void Decelerate();
 
+        void SetNormalValue(float value);
+
         /// <summary>
         /// This method gets the normal value.
         /// </summary>

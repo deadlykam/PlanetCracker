@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/PlanetCracker/_Scenes/Stage1.unity
+    guid: 84cb2a0ee3f847a46a2c0605f33f4b6a
+  - enabled: 1
+    path: Assets/PlanetCracker/_Scenes/Stage2.unity
+    guid: 3fc4466b9464349469f935dc5e94243f
   m_configObjects: {}

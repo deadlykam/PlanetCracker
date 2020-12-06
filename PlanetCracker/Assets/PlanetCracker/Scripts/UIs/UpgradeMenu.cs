@@ -15,38 +15,42 @@ namespace PlanetCracker.UIs
         [SerializeField] private int _speed;
 
         private State _showUpgrade;
+        private State _upgradeSelected;
+        private bool _isUpgraded = false;
 
         private void Start()
         {
             _showUpgrade = new CallOnceState(_stageStageManager.GetManager(), 
                                              StageStateManager.ShowUpgrade, ShowMenu);
 
+            _upgradeSelected = new FlagCheckState(_stageStageManager.GetManager(),
+                                                  StageStateManager.UpgradeSelected,
+                                                  IsUpgradeSelected, true);
+
             _stageStageManager.AddState(StageStateManager.ShowUpgrade, ref _showUpgrade);
+            _stageStageManager.AddState(StageStateManager.UpgradeSelected, ref _upgradeSelected);
         }
 
-        private void ChangeScene()
-        {
-            Debug.Log("Scene Changed");
-        }
-        
+        private bool IsUpgradeSelected() => _isUpgraded;
+
         public void BtnHP()
         {
             _playerInfo.IncreaseHealth(_health);
-            ChangeScene();
+            _isUpgraded = true;
             HideMenu();
         }
 
         public void BtnDmg()
         {
             _playerInfo.IncreaseDamage(_dmg);
-            ChangeScene();
+            _isUpgraded = true;
             HideMenu();
         }
 
         public void BtnSpd()
         {
             _playerInfo.IncreaseSpeed(_speed);
-            ChangeScene();
+            _isUpgraded = true;
             HideMenu();
         }
     }

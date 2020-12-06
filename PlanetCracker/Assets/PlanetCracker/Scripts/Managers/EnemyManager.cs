@@ -9,6 +9,7 @@ namespace PlanetCracker.Managers {
     {
         [SerializeField] private EnemyManagerHelper _helper;
         [SerializeField] private StageStateManagerHelper _stageStateManager;
+        [SerializeField] private SceneLoadManagerHelper _sceneLoadManager;
         [SerializeField] private Transform _enemyHolder;
         [SerializeField] private Transform _genPointHolder;
         [SerializeField] private int _genThreshold; // The threshold after to generate enemies
@@ -22,6 +23,7 @@ namespace PlanetCracker.Managers {
 
         private State _checkStageDone;
         private State _enemyGeneration;
+        private State _changeScene;
 
         private void Awake()
         {
@@ -45,11 +47,18 @@ namespace PlanetCracker.Managers {
                                                  StageStateManager.EnemyGeneration, 
                                                  StartManager);
 
+            _changeScene = new CallOnceState(_stageStateManager.GetManager(),
+                                             StageStateManager.ChangeScene,
+                                             _sceneLoadManager.LoadStage);
+
             _stageStateManager.AddState(StageStateManager.CheckStageDone,
                                         ref _checkStageDone);
 
             _stageStateManager.AddState(StageStateManager.EnemyGeneration,
                                         ref _enemyGeneration);
+
+            _stageStateManager.AddState(StageStateManager.ChangeScene,
+                                        ref _changeScene);
         }
 
         private void Update()

@@ -10,6 +10,7 @@ namespace PlanetCracker.Managers
     {
         [SerializeField] private StageStateManagerHelper _helper;
 
+        public const string WaitFadeOut = "waitFadeOut";
         public const string WaitDialog = "waitDialog";
         public const string HideDialog = "hideDialog";
         public const string EnemyGeneration = "enemyGeneration";
@@ -24,6 +25,10 @@ namespace PlanetCracker.Managers
         public const string SwingAxe = "swingAxe";
         public const string WaitSwingAxe = "waitSwingAxe";
         public const string ShowUpgrade = "showUpgrade";
+        public const string UpgradeSelected = "upgradeSelected";
+        public const string FadeIn = "fadeIn";
+        public const string WaitFadeIn = "waitFadeIn";
+        public const string ChangeScene = "changeScene";
 
         private Dictionary<string, State> _states; // For storing all the states
         private bool _isSetupState; // Flag to check if the states have been setup
@@ -45,10 +50,10 @@ namespace PlanetCracker.Managers
 
         private void SetupStates()
         {
+            _states[WaitFadeOut].SetNextState(_states[WaitDialog]);
             _states[WaitDialog].SetNextState(_states[HideDialog]);
             _states[HideDialog].SetNextState(_states[EnemyGeneration]);
             _states[EnemyGeneration].SetNextState(_states[CheckStageDone]);
-
             _states[CheckStageDone].SetNextState(_states[ShowInteractive]);
             _states[ShowInteractive].SetNextState(_states[WaitPressE]);
             _states[WaitPressE].SetNextState(_states[HideInteractive]);
@@ -59,8 +64,12 @@ namespace PlanetCracker.Managers
             _states[WaitShowAxe].SetNextState(_states[SwingAxe]);
             _states[SwingAxe].SetNextState(_states[WaitSwingAxe]);
             _states[WaitSwingAxe].SetNextState(_states[ShowUpgrade]);
+            _states[ShowUpgrade].SetNextState(_states[UpgradeSelected]);
+            _states[UpgradeSelected].SetNextState(_states[FadeIn]);
+            _states[FadeIn].SetNextState(_states[WaitFadeIn]);
+            _states[WaitFadeIn].SetNextState(_states[ChangeScene]);
 
-            currentState = _states[WaitDialog]; // Starting state
+            currentState = _states[WaitFadeOut]; // Starting state
             _isSetupState = true;
         }
 
