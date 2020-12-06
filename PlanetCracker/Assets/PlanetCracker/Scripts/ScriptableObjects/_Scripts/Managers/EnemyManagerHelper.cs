@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PlanetCracker.Managers;
+using UnityEngine;
 
 namespace PlanetCracker.ScriptableObjects.Managers
 {
@@ -12,5 +13,7 @@ namespace PlanetCracker.ScriptableObjects.Managers
         /// This method counts when an enemy has died.
         /// </summary>
         public void EnemyDied() => manager?.EnemyDied();
+
+        public override void RemoveManager() => manager = null;
     }
 }

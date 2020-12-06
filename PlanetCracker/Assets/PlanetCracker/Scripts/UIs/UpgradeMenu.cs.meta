@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 1f75324a94ca02b44bd8f32ab2d26981
+guid: 2ded33e7997102d4b893b86dd318bf06
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _weaponModel: {instanceID: 0}
+  - _stageStageManager: {fileID: 11400000, guid: c4e7965b52dee5043bfa1706075c3c80,
+      type: 2}
   - _playerInfo: {fileID: 11400000, guid: 5ffb72d2dea1cd743b554e8e68c506f1, type: 2}
-  - _playerPosition: {fileID: 11400000, guid: 38a1dd93003425a488c25265f8ceae0a, type: 2}
-  - _playerHealth: {fileID: 11400000, guid: c10209ecba6ecd94dab1c232c6ca222b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

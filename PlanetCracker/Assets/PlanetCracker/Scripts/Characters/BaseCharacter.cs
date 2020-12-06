@@ -18,14 +18,14 @@ namespace PlanetCracker.Characters
         private IMove _movement;
         private IRotate _rotate;
         private IWeapon _weapon;
-        private IHealth _health;
+        protected IHealth health;
         private Rigidbody _rigidBody;
 
         protected virtual void Awake() => InitCharacter();
         
         protected virtual void Update()
         {
-            if (!_health.IsDead())
+            if (!health.IsDead())
             {
                 _movement.Move(transform, _speedMove);
                 _rotate.Rotate(transform, _speedRot);
@@ -50,8 +50,8 @@ namespace PlanetCracker.Characters
             _movement = GetComponent<IMove>();
             _rotate = GetComponent<IRotate>();
             _weapon = _weaponModel.GetComponent<IWeapon>();
-            _health = GetComponent<IHealth>();
-            _health.StartSetup(_maxHealth);
+            health = GetComponent<IHealth>();
+            health.StartSetup(_maxHealth);
             _rigidBody = GetComponent<Rigidbody>();
         }
 
@@ -64,7 +64,7 @@ namespace PlanetCracker.Characters
         /// This method checks if the character has died.
         /// </summary>
         /// <returns>True means dead, false otherwise, of type bool</returns>
-        protected bool IsDead() => _health.IsDead();
+        protected bool IsDead() => health.IsDead();
 
         /// <summary>
         /// This method handles all the death conditions of the character.
@@ -75,13 +75,13 @@ namespace PlanetCracker.Characters
         /// This method heals the character.
         /// </summary>
         /// <param name="amount">The amount to heal by, of type int</param>
-        public void Heal(int amount) => _health.Heal(amount);
+        public virtual void Heal(int amount) => health.Heal(amount);
         
         /// <summary>
         /// This method hurts the character.
         /// </summary>
         /// <param name="amount">The amount to hurt by, of type int</param>
-        public void Hurt(int amount) => _health.Hurt(amount);
+        public virtual void Hurt(int amount) => health.Hurt(amount);
 
         /// <summary>
         /// The world position of the character.
@@ -102,7 +102,7 @@ namespace PlanetCracker.Characters
         public void SetValues(int health, int damage, float speed)
         {
             _maxHealth = health;
-            _health.StartSetup(health);
+            this.health.StartSetup(health);
             _speedMove = speed;
             _speedRot += speed;
             _weapon.SetBulletDamage(damage);

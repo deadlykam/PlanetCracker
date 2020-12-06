@@ -2,7 +2,7 @@
 
 namespace PlanetCracker.ScriptableObjects.Managers
 {
-    public class BaseManagerHelper<T> : ScriptableObject
+    public abstract class BaseManagerHelper<T> : ScriptableObject
     {
         protected T manager; // The manager reference
 
@@ -17,5 +17,10 @@ namespace PlanetCracker.ScriptableObjects.Managers
         /// </summary>
         /// <param name="manager">The manager to set, of type T</param>
         public void SetManager(T manager) => this.manager = manager;
+
+        /// <summary>
+        /// This method removes the stored manager.
+        /// </summary>
+        public abstract void RemoveManager();
     }
 }

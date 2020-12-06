@@ -1,62 +1,94 @@
 ﻿using PlanetCracker.Characters;
 using PlanetCracker.ScriptableObjects.Managers;
-using System.Collections;
+using PlanetCracker.States;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
-{
-    [SerializeField] private EnemyManagerHelper _helper;
-    [SerializeField] private Transform _enemyHolder;
-    [SerializeField] private Transform _genPointHolder;
-    [SerializeField] private int _genThreshold; // The threshold after to generate enemies
-    [SerializeField] private int _maxEnemies; // Max amount of enemy to generate
-
-    private Queue<Enemy> _enemies;
-    private int _index;
-    private int _enemyGenCounter;
-    private bool _isGenEnemy;
-
-    private void Awake()
+namespace PlanetCracker.Managers {
+    public class EnemyManager : MonoBehaviour
     {
-        _helper.SetManager(this);
-        _enemies = new Queue<Enemy>();
+        [SerializeField] private EnemyManagerHelper _helper;
+        [SerializeField] private StageStateManagerHelper _stageStateManager;
+        [SerializeField] private Transform _enemyHolder;
+        [SerializeField] private Transform _genPointHolder;
+        [SerializeField] private int _genThreshold; // The threshold after to generate enemies
+        [SerializeField] private int _maxEnemies; // Max amount of enemy to generate
 
-        // Loop for adding all the enemies
-        for (_index = 0; _index < _enemyHolder.childCount; _index++)
-            _enemies.Enqueue(_enemyHolder.GetChild(_index).GetComponent<Enemy>());
-    }
+        private Queue<Enemy> _enemies;
+        private int _index;
+        private int _enemyGenCounter;
+        private bool _isGenEnemy;
+        private bool _isStartManager = false;
 
-    private void Update()
-    {
-        if (!IsStageCompleted()) // Condition for generating enemy
+        private State _checkStageDone;
+        private State _enemyGeneration;
+
+        private void Awake()
         {
-            // Condition for starting to generate enemy
-            if (_enemyGenCounter <= _genThreshold && _enemies.Count != 0) _isGenEnemy = true;
+            _helper.SetManager(this);
+            _enemies = new Queue<Enemy>();
 
-            if (_isGenEnemy && _enemies.Count != 0) // Generating enemy
+            // Loop for adding all the enemies
+            for (_index = 0; _index < _enemyHolder.childCount; _index++)
+                _enemies.Enqueue(_enemyHolder.GetChild(_index).GetComponent<Enemy>());
+        }
+
+        private void OnDisable() => _helper.RemoveManager();
+
+        private void Start()
+        {
+            _checkStageDone = new FlagCheckState(_stageStateManager.GetManager(),
+                                                 StageStateManager.CheckStageDone,
+                                                 IsStageCompleted, true);
+
+            _enemyGeneration = new CallOnceState(_stageStateManager.GetManager(), 
+                                                 StageStateManager.EnemyGeneration, 
+                                                 StartManager);
+
+            _stageStateManager.AddState(StageStateManager.CheckStageDone,
+                                        ref _checkStageDone);
+
+            _stageStateManager.AddState(StageStateManager.EnemyGeneration,
+                                        ref _enemyGeneration);
+        }
+
+        private void Update()
+        {
+            if (_isStartManager) GenerateEnemies();
+        }
+
+        private void GenerateEnemies()
+        {
+            if (!IsStageCompleted()) // Condition for generating enemy
             {
-                if (_enemyGenCounter < _maxEnemies) // Checking if enemy can generate
+                // Condition for starting to generate enemy
+                if (_enemyGenCounter <= _genThreshold && _enemies.Count != 0) _isGenEnemy = true;
+
+                if (_isGenEnemy && _enemies.Count != 0) // Generating enemy
                 {
-                    _index = _index + 1 >= _genPointHolder.childCount ? 0 : _index + 1;
-                    _enemies.Dequeue()
-                        .StartCharacter(_genPointHolder.GetChild(_index).position);
-                    _enemyGenCounter++;
+                    if (_enemyGenCounter < _maxEnemies) // Checking if enemy can generate
+                    {
+                        _index = _index + 1 >= _genPointHolder.childCount ? 0 : _index + 1;
+                        _enemies.Dequeue()
+                            .StartCharacter(_genPointHolder.GetChild(_index).position);
+                        _enemyGenCounter++;
+                    }
+                    else _isGenEnemy = false; // No more generation
                 }
-                else _isGenEnemy = false; // No more generation
             }
         }
-        else Debug.Log("Stage Completed!");
+
+        /// <summary>
+        /// This method checks if the stage is complete.
+        /// </summary>
+        /// <returns>True means stage is completed, false otherwise, of type bool</returns>
+        private bool IsStageCompleted() => _enemies.Count == 0 && _enemyGenCounter == 0;
+
+        private void StartManager() => _isStartManager = true;
+
+        /// <summary>
+        /// This method counts when an enemy has died.
+        /// </summary>
+        public void EnemyDied() => _enemyGenCounter--;
     }
-
-    /// <summary>
-    /// This method checks if the stage is complete.
-    /// </summary>
-    /// <returns>True means stage is completed, false otherwise, of type bool</returns>
-    private bool IsStageCompleted() => _enemies.Count == 0 && _enemyGenCounter == 0;
-
-    /// <summary>
-    /// This method counts when an enemy has died.
-    /// </summary>
-    public void EnemyDied() => _enemyGenCounter--;
 }
