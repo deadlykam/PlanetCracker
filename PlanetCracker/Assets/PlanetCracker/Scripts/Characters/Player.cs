@@ -11,6 +11,7 @@ namespace PlanetCracker.Characters
         [SerializeField] private PlayerInfo _playerInfo;
         [SerializeField] private Vector3Func0 _playerPosition;
         [SerializeField] private IntVariableChange2 _playerHealth;
+        [SerializeField] private ActionNormal0 _deathMenuShow;
 
         protected override void Awake()
         {
@@ -27,6 +28,12 @@ namespace PlanetCracker.Characters
             base.Update();
 
             if (Input.GetMouseButton(0) && !IsDead()) FireWeapon(); // Firing weapon
+        }
+
+        protected override void Dead()
+        {
+            base.Dead();
+            _deathMenuShow.CallAction();
         }
 
         public override void Heal(int amount)

@@ -24,6 +24,7 @@ namespace PlanetCracker.Managers
         public const string WaitShowAxe = "waitShowAxe";
         public const string SwingAxe = "swingAxe";
         public const string WaitSwingAxe = "waitSwingAxe";
+        public const string ShakeCamera = "shakeCamera";
         public const string ShowUpgrade = "showUpgrade";
         public const string UpgradeSelected = "upgradeSelected";
         public const string FadeIn = "fadeIn";
@@ -63,7 +64,8 @@ namespace PlanetCracker.Managers
             _states[ShowAxe].SetNextState(_states[WaitShowAxe]);
             _states[WaitShowAxe].SetNextState(_states[SwingAxe]);
             _states[SwingAxe].SetNextState(_states[WaitSwingAxe]);
-            _states[WaitSwingAxe].SetNextState(_states[ShowUpgrade]);
+            _states[WaitSwingAxe].SetNextState(_states[ShakeCamera]);
+            _states[ShakeCamera].SetNextState(_states[ShowUpgrade]);
             _states[ShowUpgrade].SetNextState(_states[UpgradeSelected]);
             _states[UpgradeSelected].SetNextState(_states[FadeIn]);
             _states[FadeIn].SetNextState(_states[WaitFadeIn]);

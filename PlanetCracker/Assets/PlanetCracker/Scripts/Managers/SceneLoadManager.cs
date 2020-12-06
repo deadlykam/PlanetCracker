@@ -41,5 +41,8 @@ namespace PlanetCracker.Managers
 
         public void LoadStage() 
             => SceneManager.LoadScene(StageTypeToName(), LoadSceneMode.Single);
+
+        public void LoadMainMenu()
+            => SceneManager.LoadScene(_mainMenu, LoadSceneMode.Single);
     }
 }

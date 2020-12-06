@@ -10,6 +10,7 @@ namespace PlanetCracker.ScriptableObjects.Managers
     public class SceneLoadManagerHelper : BaseManagerHelper<SceneLoadManager>
     {
         public void LoadStage() => manager?.LoadStage();
+        public void LoadMainMenu() => manager?.LoadMainMenu();
         public override void RemoveManager() => manager = null;
     }
 }
