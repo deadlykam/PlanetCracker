@@ -6,6 +6,12 @@
         /// This method fires the weapon.
         /// </summary>
         void Fire();
+        
+        /// <summary>
+        /// This method sets the damage for the weapon.
+        /// </summary>
+        /// <param name="damage">The damage to set, of type int</param>
+        void SetBulletDamage(int damage);
 
         /// <summary>
         /// The damage of the bullet.

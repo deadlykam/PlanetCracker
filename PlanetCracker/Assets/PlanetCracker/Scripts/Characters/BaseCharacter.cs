@@ -98,5 +98,14 @@ namespace PlanetCracker.Characters
             transform.position = position;
             gameObject.SetActive(true);
         }
+        
+        public void SetValues(int health, int damage, float speed)
+        {
+            _maxHealth = health;
+            _health.StartSetup(health);
+            _speedMove = speed;
+            _speedRot += speed;
+            _weapon.SetBulletDamage(damage);
+        }
     }
 }

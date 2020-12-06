@@ -56,5 +56,6 @@ namespace PlanetCracker.Weapons
         public int GetBulletDamage() => _damageBullet;
         public float GetBulletSpeed() => _speedBullet;
         public string GetTargetTag() => _targetTag;
+        public void SetBulletDamage(int damage) => _damageBullet = damage;
     }
 }
