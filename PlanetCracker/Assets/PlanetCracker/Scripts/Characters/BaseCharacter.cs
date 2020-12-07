@@ -2,6 +2,7 @@
 using PlanetCracker.Movements.NormalMovements;
 using PlanetCracker.Rotations;
 using PlanetCracker.Weapons;
+using System;
 using UnityEngine;
 
 namespace PlanetCracker.Characters
@@ -10,16 +11,18 @@ namespace PlanetCracker.Characters
     public abstract class BaseCharacter : MonoBehaviour
     {
         [Header("Base Properties")]
-        [SerializeField] private Transform _weaponModel;
+        [SerializeField] private Transform[] _weaponModels;
         [SerializeField] private int _maxHealth = 1;
         [SerializeField] private float _speedMove;
         [SerializeField] private float _speedRot;
 
         private IMove _movement;
         private IRotate _rotate;
-        private IWeapon _weapon;
+        private IWeapon[] _weapons;
         protected IHealth health;
         private Rigidbody _rigidBody;
+        private Action _fireWeapon;
+        private int _index;
 
         protected virtual void Awake() => InitCharacter();
         
@@ -49,16 +52,22 @@ namespace PlanetCracker.Characters
         {
             _movement = GetComponent<IMove>();
             _rotate = GetComponent<IRotate>();
-            _weapon = _weaponModel.GetComponent<IWeapon>();
             health = GetComponent<IHealth>();
             health.StartSetup(_maxHealth);
             _rigidBody = GetComponent<Rigidbody>();
+            _weapons = new IWeapon[_weaponModels.Length];
+
+            for (_index = 0; _index < _weaponModels.Length; _index++)
+            {
+                _weapons[_index] = _weaponModels[_index].GetComponent<IWeapon>();
+                _fireWeapon += _weapons[_index].Fire;
+            }
         }
 
         /// <summary>
         /// This method fires the weapon.
         /// </summary>
-        protected void FireWeapon() => _weapon?.Fire();
+        protected void FireWeapon() => _fireWeapon?.Invoke();
 
         /// <summary>
         /// This method checks if the character has died.
@@ -105,7 +114,9 @@ namespace PlanetCracker.Characters
             this.health.StartSetup(health);
             _speedMove = speed;
             _speedRot += speed;
-            _weapon.SetBulletDamage(damage);
+
+            for (_index = 0; _index < _weaponModels.Length; _index++)
+                _weapons[_index].SetBulletDamage(damage);
         }
     }
 }

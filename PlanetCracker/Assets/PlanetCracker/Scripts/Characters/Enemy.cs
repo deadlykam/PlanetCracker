@@ -1,11 +1,12 @@
 ﻿using PlanetCracker.Movements.NormalMovements;
+using PlanetCracker.NormalizedValues;
 using PlanetCracker.Rotations;
 using PlanetCracker.ScriptableObjects.Managers;
 using UnityEngine;
 
 namespace PlanetCracker.Characters
 {
-    [RequireComponent(typeof(MoveEnemy), typeof(RotateEnemy))]
+    [RequireComponent(typeof(MoveEnemy), typeof(RotateEnemy), typeof(AccelerateValue))]
     public class Enemy : BaseCharacter
     {
         [SerializeField] private EnemyManagerHelper _enemyManager;
