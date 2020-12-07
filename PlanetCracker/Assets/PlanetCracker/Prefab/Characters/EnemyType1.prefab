@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1321b42d5306d4d97d7d50827b77d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathManager: {fileID: 11400000, guid: 46e8f46c57e5bf94caa7d04b9bcc15e9, type: 2}
   _weaponModels:
   - {fileID: 6302626497256285859}
   _thruster: {fileID: 8807078957288882310}
