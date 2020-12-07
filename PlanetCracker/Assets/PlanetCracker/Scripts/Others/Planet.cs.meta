@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: deeefb503f3569943931451838ca3ecf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _stageStateManager: {fileID: 11400000, guid: c4e7965b52dee5043bfa1706075c3c80,
+      type: 2}
+  - _planet: {instanceID: 0}
+  - _planetShattered: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

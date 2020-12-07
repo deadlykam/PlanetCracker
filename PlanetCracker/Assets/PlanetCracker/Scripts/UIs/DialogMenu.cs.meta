@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e32f6198713d78d4d8f47f4b206bd1ac
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _stageStateManager: {fileID: 11400000, guid: c4e7965b52dee5043bfa1706075c3c80,
+      type: 2}
+  - _dialogText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
