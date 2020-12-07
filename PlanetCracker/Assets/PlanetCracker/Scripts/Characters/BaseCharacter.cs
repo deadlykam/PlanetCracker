@@ -1,6 +1,7 @@
 ﻿using PlanetCracker.Healths;
 using PlanetCracker.Movements.NormalMovements;
 using PlanetCracker.Rotations;
+using PlanetCracker.ScriptableObjects.Managers;
 using PlanetCracker.Weapons;
 using System;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace PlanetCracker.Characters
     public abstract class BaseCharacter : MonoBehaviour
     {
         [Header("Base Properties")]
+        [SerializeField] private DeathManagerHelper _deathManager;
         [SerializeField] private Transform[] _weaponModels;
         [SerializeField] private GameObject _thruster;
         [SerializeField] private int _maxHealth = 1;
@@ -98,7 +100,11 @@ namespace PlanetCracker.Characters
         /// <summary>
         /// This method handles all the death conditions of the character.
         /// </summary>
-        protected virtual void Dead() => gameObject.SetActive(false);
+        protected virtual void Dead()
+        {
+            _deathManager.RequestExplosion(transform.position);
+            gameObject.SetActive(false);
+        }
 
         /// <summary>
         /// This method heals the character.

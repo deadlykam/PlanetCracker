@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 6fe157c090fe2564faa874f1237bfa8c
+guid: d91401fea756e0849a55042e845e09ed
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _deathManager: {fileID: 11400000, guid: 46e8f46c57e5bf94caa7d04b9bcc15e9, type: 2}
-  - _thruster: {instanceID: 0}
+  - _helper: {fileID: 11400000, guid: 46e8f46c57e5bf94caa7d04b9bcc15e9, type: 2}
+  - _explosionHolder: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e4840928e8c11e4ba9bbc5dfcea1b3f, type: 3}
-  m_Name: PlayerInfo
+  m_Script: {fileID: 11500000, guid: f77bad294395301489a058c95959ca8f, type: 3}
+  m_Name: DeathManagerHelper
   m_EditorClassIdentifier: 
-  _health: 50
-  _damage: 100
-  _speed: 20
-  _defaultHealth: 50
-  _defaultDamage: 10
-  _defaultSpeed: 20
