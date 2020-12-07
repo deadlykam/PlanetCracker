@@ -4,7 +4,8 @@ using PlanetCracker.States;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlanetCracker.Managers {
+namespace PlanetCracker.Managers
+{
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField] private EnemyManagerHelper _helper;

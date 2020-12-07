@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneLoadManager: {fileID: 11400000, guid: bfa70aca6fd6af44a94eea5005b1e4e9, type: 2}
+  _musicManager: {fileID: 11400000, guid: afca50ef069512845810e9173cac155d, type: 2}
 --- !u!1 &280106599
 GameObject:
   m_ObjectHideFlags: 0
