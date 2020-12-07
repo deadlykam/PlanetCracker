@@ -8,6 +8,7 @@ namespace PlanetCracker.Weapons
     [RequireComponent(typeof(TimerCountDown))]
     public class WeaponNormal : MonoBehaviour, IWeapon
     {
+        [SerializeField] private AudioSource _shootFX;
         [SerializeField] private Transform _bulletHolder;
         [SerializeField] private Transform _genPoint; // Bullet generation point
         [SerializeField] private float _speedBullet;
@@ -47,6 +48,7 @@ namespace PlanetCracker.Weapons
         {
             if (_fireRateTimer.IsTimerDone())
             {
+                if (!_shootFX.isPlaying) _shootFX.Play();
                 _indexBullet = _indexBullet + 1 >= _bullets.Count ? 0 : _indexBullet + 1;
                 _bullets[_indexBullet].FireBullet(_genPoint.position, transform.rotation);
                 _fireRateTimer.ResetTimer();

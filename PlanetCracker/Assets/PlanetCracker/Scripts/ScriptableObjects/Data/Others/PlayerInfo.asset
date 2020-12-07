@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
   _health: 50
-  _damage: 11
+  _damage: 100
   _speed: 20
   _defaultHealth: 50
   _defaultDamage: 10
