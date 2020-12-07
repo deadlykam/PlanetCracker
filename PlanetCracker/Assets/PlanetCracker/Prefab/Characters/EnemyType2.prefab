@@ -62,7 +62,7 @@ MonoBehaviour:
   _bulletHolder: {fileID: 5080093719098902851}
   _genPoint: {fileID: 1812504279450555581}
   _speedBullet: 20
-  _damageBullet: 2
+  _damageBullet: 5
   _fireRate: 1
   _targetTag: Player
 --- !u!1 &2171702322280367017
@@ -183,7 +183,7 @@ MonoBehaviour:
   - {fileID: 2171702324221774189}
   - {fileID: 2082854647351897404}
   _thruster: {fileID: 6420495099406322042}
-  _maxHealth: 100
+  _maxHealth: 300
   _speedMove: 2
   _speedRot: 25
   _enemyManager: {fileID: 11400000, guid: 593ca74db010c134e9e1d0855d68a6a7, type: 2}
@@ -309,8 +309,8 @@ MonoBehaviour:
   _bulletHolder: {fileID: 2171702324327622954}
   _genPoint: {fileID: 2171702324230870582}
   _speedBullet: 15
-  _damageBullet: 5
-  _fireRate: 1
+  _damageBullet: 10
+  _fireRate: 5
   _targetTag: Player
 --- !u!1 &2171702322675505120
 GameObject:
@@ -374,7 +374,7 @@ MonoBehaviour:
   _bulletHolder: {fileID: 2171702323815304768}
   _genPoint: {fileID: 2171702323424850013}
   _speedBullet: 8
-  _damageBullet: 1
+  _damageBullet: 2
   _fireRate: 2
   _targetTag: Player
 --- !u!1 &2171702322710157631
@@ -640,7 +640,7 @@ MonoBehaviour:
   _bulletHolder: {fileID: 2171702322763795182}
   _genPoint: {fileID: 2171702322710157630}
   _speedBullet: 20
-  _damageBullet: 2
+  _damageBullet: 5
   _fireRate: 1
   _targetTag: Player
 --- !u!1 &2171702324230870583
@@ -800,7 +800,7 @@ MonoBehaviour:
   _bulletHolder: {fileID: 6891149871494890681}
   _genPoint: {fileID: 7103729621244481491}
   _speedBullet: 8
-  _damageBullet: 1
+  _damageBullet: 2
   _fireRate: 2
   _targetTag: Player
 --- !u!1 &3961096863905239800

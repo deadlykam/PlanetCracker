@@ -10187,9 +10187,12 @@ MonoBehaviour:
   - {fileID: 1090501852}
   _stageStageManager: {fileID: 11400000, guid: c4e7965b52dee5043bfa1706075c3c80, type: 2}
   _playerInfo: {fileID: 11400000, guid: 5ffb72d2dea1cd743b554e8e68c506f1, type: 2}
-  _health: 10
-  _dmg: 5
-  _speed: 2
+  _health: 50
+  _dmg: 10
+  _speed: 5
+  _healthText: {fileID: 210780671}
+  _damageText: {fileID: 627110582}
+  _speedText: {fileID: 797679450}
 --- !u!1 &997657564
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4840928e8c11e4ba9bbc5dfcea1b3f, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  _health: 10
+  _health: 50
   _damage: 11
   _speed: 20
-  _defaultHealth: 10
-  _defaultDamage: 1
+  _defaultHealth: 50
+  _defaultDamage: 10
   _defaultSpeed: 20

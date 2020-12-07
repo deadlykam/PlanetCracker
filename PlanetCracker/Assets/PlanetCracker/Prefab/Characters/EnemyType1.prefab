@@ -127,7 +127,7 @@ MonoBehaviour:
   _weaponModels:
   - {fileID: 6302626497256285859}
   _thruster: {fileID: 8807078957288882310}
-  _maxHealth: 1
+  _maxHealth: 30
   _speedMove: 5
   _speedRot: 100
   _enemyManager: {fileID: 11400000, guid: 593ca74db010c134e9e1d0855d68a6a7, type: 2}
@@ -267,7 +267,7 @@ MonoBehaviour:
   _bulletHolder: {fileID: 6302626497818882733}
   _genPoint: {fileID: 6302626497555819717}
   _speedBullet: 8
-  _damageBullet: 1
+  _damageBullet: 2
   _fireRate: 2
   _targetTag: Player
 --- !u!1 &6302626497555819716
