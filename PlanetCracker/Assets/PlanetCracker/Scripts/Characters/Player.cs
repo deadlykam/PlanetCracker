@@ -57,6 +57,10 @@ namespace PlanetCracker.Characters
             _playerHealth.SetValues(health.GetCurrentHealth(), health.GetMaxHealth());
         }
 
-        public void PlaceCenter() => transform.position = Vector3.zero;
+        public void PlaceCenter()
+        {
+            transform.position = Vector3.zero;
+            gameObject.SetActive(false);
+        }
     }
 }
