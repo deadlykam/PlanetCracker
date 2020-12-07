@@ -17,6 +17,7 @@ namespace PlanetCracker.Managers
         public const string CheckStageDone = "checkStageDone";
         public const string ShowInteractive = "showInteractive";
         public const string WaitPressE = "waitPressE";
+        public const string CenterPlayer = "centerPlayer";
         public const string HideInteractive = "hideInteractive";
         public const string ZoomOut = "zoomOut";
         public const string WaitZoomOut = "waitZoomOut";
@@ -25,6 +26,7 @@ namespace PlanetCracker.Managers
         public const string SwingAxe = "swingAxe";
         public const string WaitSwingAxe = "waitSwingAxe";
         public const string ShakeCamera = "shakeCamera";
+        public const string ShatteredPlanet = "shatteredPlanet";
         public const string ShowUpgrade = "showUpgrade";
         public const string UpgradeSelected = "upgradeSelected";
         public const string FadeIn = "fadeIn";
@@ -57,7 +59,8 @@ namespace PlanetCracker.Managers
             _states[EnemyGeneration].SetNextState(_states[CheckStageDone]);
             _states[CheckStageDone].SetNextState(_states[ShowInteractive]);
             _states[ShowInteractive].SetNextState(_states[WaitPressE]);
-            _states[WaitPressE].SetNextState(_states[HideInteractive]);
+            _states[WaitPressE].SetNextState(_states[CenterPlayer]);
+            _states[CenterPlayer].SetNextState(_states[HideInteractive]);
             _states[HideInteractive].SetNextState(_states[ZoomOut]);
             _states[ZoomOut].SetNextState(_states[WaitZoomOut]);
             _states[WaitZoomOut].SetNextState(_states[ShowAxe]);
@@ -65,7 +68,8 @@ namespace PlanetCracker.Managers
             _states[WaitShowAxe].SetNextState(_states[SwingAxe]);
             _states[SwingAxe].SetNextState(_states[WaitSwingAxe]);
             _states[WaitSwingAxe].SetNextState(_states[ShakeCamera]);
-            _states[ShakeCamera].SetNextState(_states[ShowUpgrade]);
+            _states[ShakeCamera].SetNextState(_states[ShatteredPlanet]);
+            _states[ShatteredPlanet].SetNextState(_states[ShowUpgrade]);
             _states[ShowUpgrade].SetNextState(_states[UpgradeSelected]);
             _states[UpgradeSelected].SetNextState(_states[FadeIn]);
             _states[FadeIn].SetNextState(_states[WaitFadeIn]);

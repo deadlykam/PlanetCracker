@@ -12,6 +12,7 @@ namespace PlanetCracker.Characters
     {
         [Header("Base Properties")]
         [SerializeField] private Transform[] _weaponModels;
+        [SerializeField] private GameObject _thruster;
         [SerializeField] private int _maxHealth = 1;
         [SerializeField] private float _speedMove;
         [SerializeField] private float _speedRot;
@@ -26,12 +27,19 @@ namespace PlanetCracker.Characters
 
         protected virtual void Awake() => InitCharacter();
         
+        protected virtual void OnDisable()
+        {
+            _weapons = null;
+            _fireWeapon = null;
+        }
+
         protected virtual void Update()
         {
             if (!health.IsDead())
             {
                 _movement.Move(transform, _speedMove);
                 _rotate.Rotate(transform, _speedRot);
+                ThrusterControl();
             }
             else
             {
@@ -61,6 +69,18 @@ namespace PlanetCracker.Characters
             {
                 _weapons[_index] = _weaponModels[_index].GetComponent<IWeapon>();
                 _fireWeapon += _weapons[_index].Fire;
+            }
+        }
+
+        private void ThrusterControl()
+        {
+            if (_movement.IsMoving())
+            {
+                if (!_thruster.activeSelf) _thruster.SetActive(true);
+            }
+            else
+            {
+                if (_thruster.activeSelf) _thruster.SetActive(false);
             }
         }
 

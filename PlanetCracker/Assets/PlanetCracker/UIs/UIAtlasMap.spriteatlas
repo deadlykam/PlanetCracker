@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlasMap
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 32872db463af0f74eb81307230ced952, type: 3}
+    totalSpriteSurfaceArea: 92866
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5fb262725e70e8f49bb4a46ef24f5ed6, type: 3}
+  - {fileID: 21300000, guid: ad79d3736e2bee646bae1f45865d08de, type: 3}
+  - {fileID: 21300000, guid: 55dfd3c60c9f58b40b064e23e9b2e2fe, type: 3}
+  - {fileID: 21300000, guid: 8008eb59a61ab1f47a7752c8195e4445, type: 3}
+  - {fileID: 21300000, guid: c94297ca5c71a9e42a558d18408133f5, type: 3}
+  - {fileID: 21300000, guid: 04b6625e4c017164ba10f1c746e4c4d2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ButtonType1_250x75
+  - ButtonType3_100x50
+  - AirMeter2_Symbol_100x100
+  - AirMeter2_Bar_177x54
+  - Border200x200
+  - AirMeter2_Border_177x54
+  m_Tag: UIAtlasMap
+  m_IsVariant: 0

@@ -11,10 +11,12 @@ namespace PlanetCracker.Managers
         [SerializeField] private StageStateManagerHelper _stageStateManager;
         [SerializeField] private ActionNormal0 _interactiveShow;
         [SerializeField] private ActionNormal0 _interactiveHide;
+        [SerializeField] private ActionNormal0 _placeCenter;
 
         private State _showInteractive;
         private State _waitPressE;
         private State _hideInteractive;
+        private State _centerPlayer;
 
         private void Awake() => _helper.SetManager(this);
         private void OnDisable() => _helper.RemoveManager();
@@ -33,10 +35,16 @@ namespace PlanetCracker.Managers
                                                  StageStateManager.HideInteractive,
                                                  HideInteractiveMenu);
 
+            _centerPlayer = new CallOnceState(_stageStateManager.GetManager(),
+                                                 StageStateManager.CenterPlayer,
+                                                 _placeCenter.CallAction);
+
             _stageStateManager.AddState(StageStateManager.ShowInteractive, 
                                         ref _showInteractive);
 
             _stageStateManager.AddState(StageStateManager.WaitPressE, ref _waitPressE);
+
+            _stageStateManager.AddState(StageStateManager.CenterPlayer, ref _centerPlayer);
 
             _stageStateManager.AddState(StageStateManager.HideInteractive,
                                         ref _hideInteractive);
