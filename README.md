@@ -1,6 +1,6 @@
 <p align="center"><img src="https://imgur.com/hhKYSr9.png"></p>
 
-<p align="center"><a href="https://youtu.be/YNV2au1QYLs" target="_blank"><img src="https://imgur.com/xIDsoQ3.png"></a></p>
+<p align="center"><a href="https://youtu.be/ppEAeZ1GW2E" target="_blank"><img src="https://imgur.com/xIDsoQ3.png"></a></p>
 
 # PlanetCracker
 
@@ -31,7 +31,11 @@ Unity version of the build is **2019.4.1f1**.
 The project uses [Semantic Versioning](https://semver.org/).
 ***
 ## Authors
-- Syed Shaiyan Kamran Waliullah \- [DeadlyKam](https://github.com/deadlykam)
+- Syed Shaiyan Kamran Waliullah
+  - [Kamran Wali Github](https://github.com/deadlykam)
+  - [Kamran Wali Twitter](https://twitter.com/KamranWaliDev)
+  - [Kamran Wali Youtube](https://www.youtube.com/channel/UCkm-BgvswLViigPWrMo8pjg)
+  - [Kamran Wali Website](https://deadlykam.github.io/)
 ***
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
